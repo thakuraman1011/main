@@ -1,0 +1,10 @@
+_SOURCE_LOCATION = 'company_facts'
+_DATE_THRESHOLD = '2017-12-31'
+_URL = 'https://www.sec.gov/Archives/edgar/daily-index/xbrl/companyfacts.zip'
+_EMAIL_ADDRESS = "aman.thakur@gmail.com"
+_EMAIL_PASSWORD = "flkw mndp bbqe krcc"
+_COMPANY_FACTS='company_facts'
+_MODIFIED_FACTS = 'modified_facts'
+_SCRATCH_FOLDER = 'scratch_folder'
+_MIN_KEYS_IN_MODIFIED_JSON = 2
+_TEMP_ZIP_FILE = 'company_facts.zip'
