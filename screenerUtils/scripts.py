@@ -2,9 +2,9 @@ import json
 import os
 from collections import defaultdict
 from pathlib import Path
-from CONFIG import _MODIFIED_FACTS
+from screenerUtils.CONFIG import _MODIFIED_FACTS
 
-def get_json_for_file(f):
+def get_json_object(f):
   try:
     json_data = json.load(f)
     if not json_data:
@@ -40,7 +40,7 @@ def ciks_with_element (element_name, break_at=100):
     if len(ciks) >= break_at:
       break
     with open(file_path, 'r') as f:
-      json_data = get_json_for_file(f)
+      json_data = get_json_object(f)
       if has_element(json_data,element_name):
         ciks.append({json_data['cik'],json_data['entityName']})
   return ciks
@@ -56,7 +56,7 @@ def ciks_without_element (element_name, break_at=100):
     if len(ciks) >= break_at:
       break
     with open(file_path, 'r') as f:
-      json_data = get_json_for_file(f)
+      json_data = get_json_object(f)
       if not has_element(json_data,element_name):
         ciks.append({json_data['cik'],json_data['entityName']})
   return ciks

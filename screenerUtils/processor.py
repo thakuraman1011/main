@@ -5,9 +5,9 @@ from pathlib import Path
 from datetime import date
 import shutil
 import json
-from CONFIG import _DATE_THRESHOLD, _COMPANY_FACTS, _MODIFIED_FACTS, _MIN_KEYS_IN_MODIFIED_JSON
+from screenerUtils.CONFIG import _DATE_THRESHOLD, _COMPANY_FACTS, _MODIFIED_FACTS, _MIN_KEYS_IN_MODIFIED_JSON
 
-def transform_instance(json_data):
+def _transform_instance(json_data):
   """
   Transforms SEC json file structure to a more flat structure and also filters facts based on end date and form type.
   Transformed structure is {cik,entityName,element[]}
@@ -80,7 +80,7 @@ def transform(file_name = None, source_dir=_COMPANY_FACTS, dest_dir=_MODIFIED_FA
       # Read the JSON file
       with open(file_path, 'r') as f:
         json_data = json.load(f)
-        new_json_data = transform_instance(json_data)
+        new_json_data = _transform_instance(json_data)
         if new_json_data:
           new_file_path = dest / file_path.name
           # Write the modified dictionary to the new location
@@ -92,5 +92,5 @@ def transform(file_name = None, source_dir=_COMPANY_FACTS, dest_dir=_MODIFIED_FA
         print(f"Error processing {file_path.name}: {e}")
 
 ########################## Execution block ################################
-transform()
-print('modified files created')
+# transform()
+# print('modified files created')
